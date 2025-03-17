@@ -1,8 +1,8 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from "@nestjs/common";
 import {ExperienceService} from "./experience.service";
 import {Experience} from "./experience.entity";
-import {CreateExperienceDTO} from "./create-experience.dto";
-import {UpdateExperienceDTO} from "./update-experience.dto";
+import {CreateExperienceDTO} from "./dto/create-experience.dto";
+import {UpdateExperienceDTO} from "./dto/update-experience.dto";
 @Controller('experience')
 export class ExperienceController{
     constructor(private readonly experienceService: ExperienceService) {}

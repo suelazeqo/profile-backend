@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {TypeOrmModule} from "@nestjs/typeorm";
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import {ExperienceModule} from "./experience/experience.module";
+import { ExperienceModule } from './experience/experience.module';
+import { SkillsModule } from './skills/skills.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(), // Load .env variables
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -19,7 +20,8 @@ import {ExperienceModule} from "./experience/experience.module";
       synchronize: true, // For development only
       logging: true,
     }),
-      ExperienceModule
+    ExperienceModule,
+    SkillsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
