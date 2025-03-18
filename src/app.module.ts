@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ExperienceModule } from './experience/experience.module';
 import { SkillsModule } from './skills/skills.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { SkillsModule } from './skills/skills.module';
     }),
     ExperienceModule,
     SkillsModule,
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
