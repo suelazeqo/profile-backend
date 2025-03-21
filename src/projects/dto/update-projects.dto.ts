@@ -1,3 +1,5 @@
-import {CreateProjectsDto} from "./create-projects.dto";
+import { CreateProjectsDto } from './create-projects.dto';
 
-export class UpdateProjectsDTO implements Partial<CreateProjectsDto> {}
+export class UpdateProjectsDTO implements Partial<CreateProjectsDto> {
+  image?: string;
+}

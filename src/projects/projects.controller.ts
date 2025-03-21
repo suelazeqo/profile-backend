@@ -17,8 +17,12 @@ export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
   @Post()
-  async createProject(@Body() data: CreateProjectsDto): Promise<Project> {
-    return this.projectsService.createProject(data);
+  async createProject(@Body() createProjectDto: CreateProjectsDto) {
+    if (!Array.isArray(createProjectDto.skills)) {
+      createProjectDto.skills = [createProjectDto.skills].flat();
+    }
+
+    return this.projectsService.createProject(createProjectDto);
   }
 
   @Get()

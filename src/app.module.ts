@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ExperienceModule } from './experience/experience.module';
 import { SkillsModule } from './skills/skills.module';
 import { ProjectsModule } from './projects/projects.module';
+import {UploadModule} from "./uploads/upload.module";
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ProjectsModule } from './projects/projects.module';
     ExperienceModule,
     SkillsModule,
     ProjectsModule,
+    UploadModule
   ],
   controllers: [AppController],
   providers: [AppService],
