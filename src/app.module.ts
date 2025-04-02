@@ -6,11 +6,14 @@ import { ConfigModule } from '@nestjs/config';
 import { ExperienceModule } from './experience/experience.module';
 import { SkillsModule } from './skills/skills.module';
 import { ProjectsModule } from './projects/projects.module';
-import {UploadModule} from "./uploads/upload.module";
+import { UploadModule } from './uploads/upload.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -25,7 +28,8 @@ import {UploadModule} from "./uploads/upload.module";
     ExperienceModule,
     SkillsModule,
     ProjectsModule,
-    UploadModule
+    UploadModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
