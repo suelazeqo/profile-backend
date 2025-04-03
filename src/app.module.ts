@@ -8,11 +8,12 @@ import { SkillsModule } from './skills/skills.module';
 import { ProjectsModule } from './projects/projects.module';
 import { UploadModule } from './uploads/upload.module';
 import { AuthModule } from './auth/auth.module';
+import { AboutModule } from './about/about.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -30,6 +31,7 @@ import { AuthModule } from './auth/auth.module';
     ProjectsModule,
     UploadModule,
     AuthModule,
+    AboutModule,
   ],
   controllers: [AppController],
   providers: [AppService],
