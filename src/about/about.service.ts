@@ -14,11 +14,10 @@ export class AboutService {
     const about = await this.aboutRepository.findOne({
       where: { id: 1 },
     });
-    if (!about) {
-      throw new Error('Description not found');
-    }
-    return about;
+
+    return about || new About();
   }
+
 
   async createOrUpdateDescription(description: About): Promise<About> {
     const existingAbout = await this.aboutRepository.findOne({
@@ -38,12 +37,19 @@ export class AboutService {
 
   async updateDescription(id: number, description: About): Promise<About> {
     const existingAbout = await this.aboutRepository.findOne({
-      where: { id: id },
+      where: { id },
     });
-    if (!existingAbout) {
-      throw new Error('About record not found');
+
+    if (existingAbout) {
+      existingAbout.description = description.description;
+      return this.aboutRepository.save(existingAbout);
     }
-    existingAbout.description = description.description;
-    return this.aboutRepository.save(existingAbout);
+
+    const newAbout = this.aboutRepository.create({
+      id,
+      description: description.description,
+    });
+    return this.aboutRepository.save(newAbout);
   }
+
 }

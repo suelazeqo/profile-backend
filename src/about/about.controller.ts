@@ -7,8 +7,12 @@ export class AboutController {
   constructor(private readonly aboutService: AboutService) {}
 
   @Get()
-  getDescription(): Promise<About> {
-    return this.aboutService.getDescription();
+  async getDescription(): Promise<About | { message: string }> {
+    const about = await this.aboutService.getDescription();
+    if (!about?.description) {
+      return { message: 'No description found.' };
+    }
+    return about;
   }
 
   @Post()

@@ -25,6 +25,13 @@ import { AboutModule } from './about/about.module';
       autoLoadEntities: true,
       synchronize: true, // For development only
       logging: true,
+
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
     ExperienceModule,
     SkillsModule,
