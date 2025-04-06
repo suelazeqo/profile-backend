@@ -13,7 +13,11 @@ export class ProjectsService {
   ) {}
 
   async getAllProjects(): Promise<Project[]> {
-    return this.projectRepository.find();
+    return this.projectRepository.find({
+      order: {
+        id: 'DESC',
+      },
+    });
   }
 
   async createProject(data: CreateProjectsDto): Promise<Project> {

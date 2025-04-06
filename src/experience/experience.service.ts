@@ -25,7 +25,11 @@ export class ExperienceService{
         return this.experienceRepository.save(experience)
     }
     async getAllExperiences(): Promise<Experience[]>{
-        return this.experienceRepository.find()
+        return this.experienceRepository.find({
+            order: {
+                startDate: 'DESC',
+            },
+        })
     }
 
     async updateExperience(id: number, updateData: UpdateExperienceDTO): Promise<Experience> {
