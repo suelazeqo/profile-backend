@@ -12,7 +12,10 @@ async function bootstrap() {
     credentials: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   });
+
 
 
   app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
