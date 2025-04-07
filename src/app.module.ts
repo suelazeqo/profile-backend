@@ -26,7 +26,6 @@ import { AboutModule } from './about/about.module';
       synchronize: true, // For development only
       logging: true,
 
-      ssl: true,
       extra: {
         ssl: {
           rejectUnauthorized: false,
