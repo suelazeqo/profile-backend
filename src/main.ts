@@ -8,7 +8,17 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:4200',
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        'http://localhost:4200',
+        'https://suelazeqo.github.io',
+      ];
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('CORS not allowed'), false);
+      }
+    },
     credentials: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
