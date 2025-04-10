@@ -11,6 +11,9 @@ export class CreateExperienceDTO {
   @IsString()
   title: string;
 
+  @IsString()
+  company: string;
+
   @IsArray()
   @IsString({ each: true })
   responsibilities: string[];

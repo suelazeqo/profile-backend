@@ -14,6 +14,10 @@ export class Experience {
   @Column()
   title: string;
 
+  @Column({ nullable: true })
+  company: string;
+
+
   @Column('text', { array: true })
   responsibilities: string[];
 
