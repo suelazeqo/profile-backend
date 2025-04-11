@@ -8,6 +8,7 @@ export class UploadService {
       throw new Error('File is required');
     }
 
-    return `http://localhost:3000/uploads/${file.filename}`;
+    const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+    return `${baseUrl}/uploads/${file.filename}`;
   }
 }
