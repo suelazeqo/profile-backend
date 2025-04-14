@@ -11,6 +11,9 @@ export class Project {
   @Column()
   title: string;
 
+  @Column({ nullable: true })
+  link:string;
+
   @Column()
   description: string;
 

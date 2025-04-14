@@ -18,4 +18,7 @@ export class CreateProjectsDto {
 
   @IsOptional()
   image?: string;
+
+  @IsOptional()
+  link?:string;
 }
